@@ -30,7 +30,7 @@ function App() {
 
       spotify.getMe().then((user) => {
         dispatch({
-          type: 'SET_USER',
+          type: "SET_USER",
           user: user,
         });
       });
@@ -42,18 +42,14 @@ function App() {
   console.log("smile",user);
   console.log("alien",token);
 
-  return (
-    //BEM
-    <div className="app">
+  return <div className="app">
       {
-        token ? (
-            <Player/>
-        ) : (
+        token ? 
+            <Player spotify={spotify}/>
+         : 
             <Login/>
-        )
     }
-    </div>
-  );
+    </div>;
 }
 
 export default App;
