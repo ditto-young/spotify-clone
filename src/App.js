@@ -34,22 +34,21 @@ function App() {
           user: user,
         });
       });
-    }
 
-    console.log("I HAVE A TOKEN >>>", token);
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        });
+      });
+    }
   },[]);
 
-  console.log("smile",user);
-  console.log("alien",token);
-
-  return <div className="app">
-      {
-        token ? 
-            <Player spotify={spotify}/>
-         : 
-            <Login/>
-    }
-    </div>;
+  return(
+    <div className="app">
+        {token ? <Player spotify={spotify}/>:<Login/>}
+    </div>
+  );
 }
 
 export default App;
