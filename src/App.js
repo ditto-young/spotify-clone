@@ -4,14 +4,14 @@ import Login from './Login';
 import { getTokenFromUrl } from './spotify';
 import SpotifyWebApi from "spotify-web-api-js";
 import Player from './Player';
-import {useDataLayerValue} from './DataLayer';
+import {useStateValue} from './StateProvider';
 
 
 const spotify = new SpotifyWebApi();
 
 
 function App() {
-  const [{user, token}, dispatch] = useDataLayerValue();
+  const [{user, token}, dispatch] = useStateValue();
 
 
   //Run code base on given condition
